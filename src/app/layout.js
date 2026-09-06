@@ -1,4 +1,5 @@
 import { Allura, Anton, Cormorant_Garamond, DM_Sans, Montserrat } from "next/font/google";
+import Script from "next/script";
 import "aos/dist/aos.css";
 import "./globals.css";
 import AOSProvider from "./components/AOSProvider";
@@ -108,6 +109,17 @@ export default function RootLayout({ children }) {
       className={`${headingFont.variable} ${antonFont.variable} ${subheadingFont.variable} ${bodyFont.variable} ${scriptFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-HKRW5Z370Z"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HKRW5Z370Z');`}
+        </Script>
         <AOSProvider />
         <LenisProvider />
         {children}
