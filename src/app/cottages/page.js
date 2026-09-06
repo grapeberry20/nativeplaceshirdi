@@ -5,8 +5,41 @@ import { Page } from "../lib/models/index.js";
 import { getDefaultStayContent, normalizeStayContent } from "../lib/stay-content.js";
 
 export const metadata = {
-  title: "Cottages | The Native Place Shirdi",
-  description: "Explore the cottages at The Native Place Shirdi.",
+  title: "Best Cottages near Shirdi | The Native Place",
+  description:
+    "Book the best cottages near Shirdi at The Native Place and enjoy cozy rooms, peaceful greenery, garden views and a relaxing nature stay.",
+  keywords: [
+    "best cottages near shirdi",
+    "cottages near shirdi temple",
+    "family cottages near shirdi",
+    "nature cottages near shirdi",
+    "private cottages near shirdi",
+    "cottages with swimming pool near shirdi",
+  ],
+  alternates: {
+    canonical: "/cottages",
+  },
+  openGraph: {
+    type: "website",
+    url: "/cottages",
+    siteName: "The Native Place",
+    title: "Best Cottages near Shirdi | The Native Place",
+    description:
+      "Book the best cottages near Shirdi at The Native Place and enjoy cozy rooms, peaceful greenery, garden views and a relaxing nature stay.",
+    images: [
+      {
+        url: "/images/banners/villas.jpeg",
+        alt: "Best cottages near Shirdi at The Native Place",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Cottages near Shirdi | The Native Place",
+    description:
+      "Book the best cottages near Shirdi at The Native Place and enjoy cozy rooms, peaceful greenery, garden views and a relaxing nature stay.",
+    images: ["/images/banners/villas.jpeg"],
+  },
 };
 
 export const dynamic = "force-dynamic";

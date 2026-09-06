@@ -14,9 +14,40 @@ import Navbar from "../components/Navbar";
 import PageBanner from "../components/PageBanner";
 
 export const metadata = {
-  title: "Contact Us | The Native Place Shirdi",
+  title: "Contact The Native Place | Resort Near Shirdi",
   description:
-    "Contact The Native Place Shirdi for bookings, information and general enquiries.",
+    "Contact The Native Place, a peaceful resort near Shirdi, for villa and cottage bookings, stay details, directions and general enquiries.",
+  keywords: [
+    "contact resort near shirdi",
+    "The Native Place contact",
+    "resort booking near shirdi",
+    "villas booking near shirdi",
+    "cottages booking near shirdi",
+  ],
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    type: "website",
+    url: "/contact",
+    siteName: "The Native Place",
+    title: "Contact The Native Place | Resort Near Shirdi",
+    description:
+      "Contact The Native Place, a peaceful resort near Shirdi, for villa and cottage bookings, stay details, directions and general enquiries.",
+    images: [
+      {
+        url: "/images/common/IMG_9115.JPG.jpeg",
+        alt: "The Native Place resort near Shirdi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact The Native Place | Resort Near Shirdi",
+    description:
+      "Contact The Native Place, a peaceful resort near Shirdi, for villa and cottage bookings, stay details, directions and general enquiries.",
+    images: ["/images/common/IMG_9115.JPG.jpeg"],
+  },
 };
 
 const socials = [

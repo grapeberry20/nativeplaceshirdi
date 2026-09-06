@@ -15,8 +15,42 @@ import { Page } from "../lib/models/index.js";
 import { getDefaultStayContent, normalizeStayContent } from "../lib/stay-content.js";
 
 export const metadata = {
-  title: "2 BHK Villas | The Native Place Shirdi",
-  description: "Explore the 2 BHK Villas at The Native Place Shirdi.",
+  title: "Best Villas near Shirdi | The Native Place",
+  description:
+    "Stay in the best villas near Shirdi at The Native Place, with spacious 2 BHK villas, private sit-outs, garden views and peaceful nature surroundings.",
+  keywords: [
+    "best villas near shirdi",
+    "best villas near shirdi temple",
+    "best villas near shirdi water park",
+    "pool villas near shirdi",
+    "2 BHK villas near shirdi",
+    "private villas near shirdi",
+    "family villas near shirdi",
+  ],
+  alternates: {
+    canonical: "/villas",
+  },
+  openGraph: {
+    type: "website",
+    url: "/villas",
+    siteName: "The Native Place",
+    title: "Best Villas near Shirdi | The Native Place",
+    description:
+      "Stay in the best villas near Shirdi at The Native Place, with spacious 2 BHK villas, private sit-outs, garden views and peaceful nature surroundings.",
+    images: [
+      {
+        url: "/images/banners/villas.jpeg",
+        alt: "Best villas near Shirdi at The Native Place",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Villas near Shirdi | The Native Place",
+    description:
+      "Stay in the best villas near Shirdi at The Native Place, with spacious 2 BHK villas, private sit-outs, garden views and peaceful nature surroundings.",
+    images: ["/images/banners/villas.jpeg"],
+  },
 };
 
 export const dynamic = "force-dynamic";

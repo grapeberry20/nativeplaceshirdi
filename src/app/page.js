@@ -21,6 +21,8 @@ export const metadata = {
     "best resort near shirdi",
     "best nature resort near shirdi",
     "best veg and non veg resort near shirdi",
+    "the native place shirdi",
+    "the native place",
     "pet friendly resort near shirdi",
     "family friendly resort near shirdi",
     "couple friendly resort near shirdi",
