@@ -35,7 +35,7 @@ const scriptFont = Allura({
   weight: "400",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thenativeplaceshirdi.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thenativeplaceshirdi.in";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

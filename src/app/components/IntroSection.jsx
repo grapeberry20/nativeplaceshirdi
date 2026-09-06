@@ -7,7 +7,7 @@ import { useSyncExternalStore } from "react";
 const features = [
   { icon: Sprout, title: "Surrounded by Nature" },
   { icon: Mountain, title: "Scenic Views Near Shirdi" },
-  { icon: UtensilsCrossed, title: "Pure Veg Dining" },
+  { icon: UtensilsCrossed, title: "Veg & Non-Veg Dining" },
   { icon: Users, title: "Peace, Tranquility & Rejuvenation" },
 ];
 
