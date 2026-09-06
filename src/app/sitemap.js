@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thenativeplaceshirdi.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thenativeplaceshirdi.in";
   const now = new Date();
 
   const routes = [
