@@ -234,7 +234,7 @@ export default function ExperienceSection() {
         </div>
       </div>
 
-    
+
 
       {isVideoOpen && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/75 px-4 py-4">

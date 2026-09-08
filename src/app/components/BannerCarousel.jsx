@@ -11,7 +11,7 @@ const banners = [
   heading: "A Serene Resort Near Shirdi for a Peaceful Stay",
 },
 {
-  src: "/images/banners/villas.jpeg",
+  src: "/images/banners/bestvilla.jpg",
   heading: "Experience Nature and Comfort Near Shirdi",
 },
 {
