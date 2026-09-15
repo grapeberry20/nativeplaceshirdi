@@ -193,7 +193,7 @@ export default function VillasCottages() {
             title="COTTAGES"
             subtitle="Cozy. Charming. Close to Nature."
             description="Our charming Cottages offer a peaceful escape surrounded by greenery, created for slow mornings, quiet evenings and meaningful time together."
-            image="/images/banners/cottageintro1.jpg"
+            image="/images/banners/cottageintro3.jpg"
             imageAlt="Cottage"
             buttonLabel="Explore Cottages"
             href="/cottages"

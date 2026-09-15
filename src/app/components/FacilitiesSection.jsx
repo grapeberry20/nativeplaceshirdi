@@ -13,7 +13,7 @@ const facilities = [
   {
     title: "Dining Hall",
     description: "Delicious meals, warm ambience, memorable moments.",
-    image: "/images/dininghall/dininghall.jpeg",
+    image: "/images/amenities/dininghall.jpg",
   },
   {
     title: "Banquet Hall",
@@ -33,7 +33,7 @@ const facilities = [
   {
     title: "Machan Lounge",
     description: "An elevated retreat for coffee, conversations and calm views.",
-    image: "/images/amenities/machan.jpeg",
+    image: "/images/amenities/machan2.jpg",
   },
 ];
 
