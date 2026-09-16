@@ -87,6 +87,8 @@ export default async function CottagesPage() {
       heroImage={stayContent.heroImages?.[0] || stayContent.bannerImage}
       heroThumbs={stayContent.heroImages}
       introImage={stayContent.introImage}
+      introTitle="Premium Cottage"
+      introDescription="A cozy private retreat for couples, surrounded by greenery and tranquility. Enjoy a comfortable stay, peaceful surroundings, and quality time together at The Native Place."
       galleryImages={stayContent.galleryImages}
       amenities={cottageAmenities}
       highlights={cottageHighlights}

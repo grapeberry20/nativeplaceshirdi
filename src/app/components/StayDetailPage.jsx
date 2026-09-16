@@ -113,6 +113,8 @@ export default function StayDetailPage({
   heroImage,
   heroThumbs,
   introImage,
+  introTitle = "A Home, Away from Home",
+  introDescription,
   galleryImages,
   amenities,
   highlights,
@@ -218,14 +220,14 @@ export default function StayDetailPage({
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
             <article className="flex flex-col justify-center rounded-[18px] border border-[#ece2cf] bg-[#f5efdf] p-8 shadow-[0_18px_45px_rgba(40,55,35,0.08)] sm:p-10">
               <h2 className="font-heading text-[clamp(2.2rem,3vw,3.3rem)] leading-tight text-[#2b4532]">
-                A Home, Away from Home
+                {introTitle}
               </h2>
 
               <div className="mt-4 h-px w-24 bg-[#d7cfbc]" />
 
               <p className="mt-6 max-w-xl text-[16px] leading-8 text-[#566155]">
-                Our {stayTitle.toLowerCase()} are ideal for families, friends or small groups who
-                wish to relax, reconnect and rejuvenate in a serene natural setting.
+                {introDescription ||
+                  `Our ${stayTitle.toLowerCase()} are ideal for families, friends or small groups who wish to relax, reconnect and rejuvenate in a serene natural setting.`}
               </p>
 
               <ul className="mt-7 space-y-3">
