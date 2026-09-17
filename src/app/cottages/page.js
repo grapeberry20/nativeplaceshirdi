@@ -1,8 +1,21 @@
-import { Armchair, BedDouble, Coffee, Home, Leaf, Package, Trees, Wifi, Zap } from "lucide-react";
+import {
+  Armchair,
+  BedDouble,
+  Coffee,
+  Home,
+  Leaf,
+  Package,
+  Trees,
+  Wifi,
+  Zap,
+} from "lucide-react";
 import StayDetailPage from "../components/StayDetailPage.jsx";
 import dbConnect from "../lib/dbConnect.js";
 import { Page } from "../lib/models/index.js";
-import { getDefaultStayContent, normalizeStayContent } from "../lib/stay-content.js";
+import {
+  getDefaultStayContent,
+  normalizeStayContent,
+} from "../lib/stay-content.js";
 
 export const metadata = {
   title: "Best Cottages near Shirdi | The Native Place",
@@ -68,7 +81,10 @@ async function getCottagesPageContent() {
     await dbConnect();
     const page = await Page.findOne({ slug: "cottages" }).lean();
 
-    return normalizeStayContent("cottages", page?.content || getDefaultStayContent("cottages"));
+    return normalizeStayContent(
+      "cottages",
+      page?.content || getDefaultStayContent("cottages"),
+    );
   } catch (_error) {
     return getDefaultStayContent("cottages");
   }
@@ -88,7 +104,7 @@ export default async function CottagesPage() {
       heroThumbs={stayContent.heroImages}
       introImage={stayContent.introImage}
       introTitle="Premium Cottage"
-      introDescription="A cozy private retreat for couples, surrounded by greenery and tranquility. Enjoy a comfortable stay, peaceful surroundings, and quality time together at The Native Place."
+      introDescription="A cozy private retreat for visitors, surrounded by greenery and tranquility. Enjoy a comfortable stay, peaceful surroundings, and quality time together at The Native Place. ‎"
       galleryImages={stayContent.galleryImages}
       amenities={cottageAmenities}
       highlights={cottageHighlights}
