@@ -1,7 +1,7 @@
+import StayBookingButton from "./StayBookingButton";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  CalendarDays,
   ChevronLeft,
   Grid3x3,
   Home,
@@ -206,13 +206,10 @@ export default function StayDetailPage({
               </div>
 
               <div className="mt-8">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-3 rounded-full bg-[#204f30] px-7 py-4 text-[14px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_16px_30px_rgba(33,67,42,0.2)] transition-all duration-300 hover:bg-[#2d6138]"
-                >
+                <StayBookingButton stayType={bookButton.toLowerCase()} stayTitle={stayTitle}
+                  className="inline-flex items-center gap-3 rounded-full bg-[#204f30] px-7 py-4 text-[14px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_16px_30px_rgba(33,67,42,0.2)] transition-all duration-300 hover:bg-[#2d6138]">
                   Check Availability
-                  <CalendarDays className="h-4 w-4" />
-                </a>
+                </StayBookingButton>
               </div>
             </div>
           </div>
@@ -297,13 +294,10 @@ export default function StayDetailPage({
                   Book your stay and unwind with your loved ones.
                 </p>
 
-                <a
-                  href="/contact"
-                  className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#204f30] px-7 py-4 text-[14px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#2d6138]"
-                >
+                <StayBookingButton stayType={bookButton.toLowerCase()} stayTitle={stayTitle}
+                  className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#204f30] px-7 py-4 text-[14px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#2d6138]">
                   Book Your {bookButton}
-                  <CalendarDays className="h-4 w-4" />
-                </a>
+                </StayBookingButton>
               </div>
 
               <div className="relative min-h-[240px] lg:min-h-[280px]">

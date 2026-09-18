@@ -171,6 +171,18 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+        <section aria-label="The Native Place location map" className="w-full">
+          <iframe
+            title="The Native Place on Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.9998628013723!2d74.35098040000001!3d19.882227699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdc4ffdaf4d8d9d%3A0xce232b98fbb4b27e!2sTHE%20NATIVE%20PLACE!5e0!3m2!1sen!2sin!4v1789709285451!5m2!1sen!2sin"
+            width="100%"
+            height="700"
+            className="block h-[700px] w-full border-0"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        </section>
       </main>
 
       <Footer />

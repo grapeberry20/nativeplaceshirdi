@@ -14,6 +14,7 @@ const bookingEnquirySchema = new mongoose.Schema(
       enum: ["new", "pending", "confirmed", "cancelled", "closed"],
       default: "new",
     },
+    stayType: { type: String, enum: ["", "villa", "cottage"], default: "" },
     source: { type: String, default: "website" },
   },
   { timestamps: true },

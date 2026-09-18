@@ -3,18 +3,10 @@ import dbConnect from "@/app/lib/dbConnect.js";
 import { BookingEnquiry } from "@/app/lib/models/index.js";
 
 const clean = (value) => String(value || "").trim();
-const today = (() => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-})();
-
 export async function POST(request) {
   try {
     const payload = await request.json();
+    const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
     const firstName = clean(payload?.firstName);
     const lastName = clean(payload?.lastName);
     const phone = clean(payload?.phone);
@@ -22,6 +14,11 @@ export async function POST(request) {
     const checkIn = clean(payload?.checkIn);
     const checkOut = clean(payload?.checkOut);
     const message = clean(payload?.message);
+    const stayType = clean(payload?.stayType).toLowerCase();
+    const validDate = value => /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+    if (!["", "villa", "cottage"].includes(stayType) || !validDate(checkIn) || !validDate(checkOut) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !/^[+0-9() .-]+$/.test(phone) || phone.replace(/\D/g, "").length < 7 || phone.replace(/\D/g, "").length > 15) {
+      return NextResponse.json({ success: false, message: "Please enter valid contact details and booking dates." }, { status: 400 });
+    }
 
     if (!firstName || !lastName || !phone || !email || !checkIn || !checkOut) {
       return NextResponse.json(
@@ -60,6 +57,7 @@ export async function POST(request) {
       checkIn,
       checkOut,
       message,
+      stayType,
       source: "website",
       status: "new",
     });
