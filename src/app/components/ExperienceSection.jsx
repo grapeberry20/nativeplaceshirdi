@@ -1,16 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import {
   Coffee,
-  Pause,
   Mountain,
-  Play,
   Sparkles,
-  Trees,
   Users,
-  X,
 } from "lucide-react";
 
 const experienceFeatures = [
@@ -18,13 +14,6 @@ const experienceFeatures = [
   { icon: Sparkles, label: "Peaceful Ambience" },
   { icon: Coffee, label: "Nature & Comfort" },
   { icon: Users, label: "Memorable Moments" },
-];
-
-const stats = [
-  { target: 15, suffix: "+", label: "Acres of Natural Beauty", icon: Trees },
-  { target: 20, suffix: "+", label: "Premium Amenities", icon: Sparkles },
-  { target: 1000, suffix: "+", label: "Happy Guests", icon: Users, format: "compact" },
-  { value: "Forever", label: "Memories That Last", icon: Sparkles },
 ];
 
 function FeaturePill({ icon: Icon, label }) {
@@ -39,12 +28,6 @@ function FeaturePill({ icon: Icon, label }) {
 }
 
 export default function ExperienceSection() {
-  const videoRef = useRef(null);
-  const statsRef = useRef(null);
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [counts, setCounts] = useState(stats.map(() => 0));
-  const [hasCounted, setHasCounted] = useState(false);
   const isMobile = useSyncExternalStore(
     (onStoreChange) => {
       const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -55,112 +38,6 @@ export default function ExperienceSection() {
     () => window.matchMedia("(max-width: 767px)").matches,
     () => false,
   );
-
-  const closeVideo = () => {
-    videoRef.current?.pause();
-    setIsPlaying(false);
-    setIsVideoOpen(false);
-  };
-
-  const toggleVideo = () => {
-    const video = videoRef.current;
-
-    if (!video) {
-      return;
-    }
-
-    if (video.paused) {
-      video.play();
-      setIsPlaying(true);
-      return;
-    }
-
-    video.pause();
-    setIsPlaying(false);
-  };
-
-  useEffect(() => {
-    if (!isVideoOpen) {
-      return undefined;
-    }
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isVideoOpen]);
-
-  useEffect(() => {
-    if (!isVideoOpen || !videoRef.current) {
-      return;
-    }
-
-    setIsPlaying(true);
-    videoRef.current.currentTime = 0;
-    videoRef.current.play().catch(() => {
-      setIsPlaying(false);
-    });
-  }, [isVideoOpen]);
-
-  useEffect(() => {
-    const node = statsRef.current;
-
-    if (!node || hasCounted) {
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        setHasCounted(true);
-
-        const startTime = performance.now();
-        const duration = 1400;
-
-        const animate = (now) => {
-          const progress = Math.min((now - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-
-          setCounts(
-            stats.map((stat) =>
-              typeof stat.target === "number" ? Math.round(stat.target * eased) : 0,
-            ),
-          );
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        };
-
-        requestAnimationFrame(animate);
-        observer.disconnect();
-      },
-      {
-        threshold: 0.3,
-      },
-    );
-
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, [hasCounted]);
-
-  const formatCount = (value, stat) => {
-    if (stat.value) {
-      return stat.value;
-    }
-
-    if (stat.format === "compact") {
-      return `${Math.round(value / 1000)}K${stat.suffix ?? ""}`;
-    }
-
-    return `${value}${stat.suffix ?? ""}`;
-  };
 
   return (
     <section className="relative isolate min-h-screen overflow-hidden bg-[#fbf8ef] px-4 py-12 sm:px-6 sm:py-16 lg:px-0 lg:py-0">
@@ -219,68 +96,12 @@ export default function ExperienceSection() {
 
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,248,239,0.98)_0%,rgba(251,248,239,0.88)_14%,rgba(251,248,239,0.5)_28%,rgba(251,248,239,0.12)_48%,rgba(251,248,239,0)_62%)]" />
 
-          <button
-            type="button"
-            onClick={() => setIsVideoOpen(true)}
-            className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 rounded-full bg-black/28 px-3 py-2.5 text-white shadow-[0_20px_40px_rgba(0,0,0,0.22)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.02] sm:gap-4 sm:px-4 sm:py-3"
-          >
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/70 bg-black/22 sm:h-24 sm:w-24">
-              <Play className="ml-1 h-7 w-7 fill-current sm:h-10 sm:w-10" />
-            </span>
-            <span className="font-script text-2xl leading-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)] sm:text-4xl">
-              Play Video
-            </span>
-          </button>
+
         </div>
       </div>
 
 
 
-      {isVideoOpen && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/75 px-4 py-4">
-          <div className="relative w-full max-w-4xl overflow-hidden rounded-[1.25rem] bg-black shadow-[0_24px_70px_rgba(0,0,0,0.45)]">
-            <button
-              type="button"
-              aria-label="Close video"
-              onClick={closeVideo}
-              className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md transition-colors duration-300 hover:bg-white/25"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            <video
-              ref={videoRef}
-              className="block h-auto max-h-[68vh] w-full object-contain bg-black"
-              controls
-              autoPlay
-              playsInline
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-            >
-              <source src="/videos/property_full.mp4" type="video/mp4" />
-            </video>
-
-            <div className="flex items-center justify-between gap-3 border-t border-white/10 bg-black px-4 py-3 text-white">
-              <button
-                type="button"
-                onClick={toggleVideo}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium transition-colors duration-300 hover:bg-white/20"
-              >
-                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                {isPlaying ? "Pause" : "Play"}
-              </button>
-
-              <button
-                type="button"
-                onClick={closeVideo}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#18352A] transition-colors duration-300 hover:bg-[#dff1bf]"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
