@@ -162,13 +162,19 @@ export default function BookingSection() {
                     <div>
                         <p className="text-sm text-white/80">Have questions?</p>
                         <p className="text-sm text-white/70">We’re here to help!</p>
+                      
                         <a
                           href="tel:+918237036360"
-                          className="mt-1 block text-[1.05rem] font-semibold text-[#d8f184] sm:text-[1.25rem]"
+                          className="mt-1 block text-[1.05rem] font-semibold text-[#d8f184] sm:text-[1.05rem]"
                         >
                           +91 82370 36360
                         </a>
-                       
+                         <a
+                          href="tel:+91 9370678010"
+                          className="mt-1 block text-[1.05rem] font-semibold text-[#d8f184] sm:text-[1.05rem]"
+                        >
+                          +91 93706 78010
+                        </a>
                       </div>
                     </div>
                   </div>

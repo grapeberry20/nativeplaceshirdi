@@ -108,6 +108,8 @@ export default function StayDetailPage({
   stayLabel,
   stayTitle,
   bannerTitle,
+  bookButton,
+  bookImg,
   bannerDescription,
   bannerImage,
   heroImage,
@@ -299,14 +301,14 @@ export default function StayDetailPage({
                   href="/contact"
                   className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#204f30] px-7 py-4 text-[14px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#2d6138]"
                 >
-                  Book Your Villa
+                  Book Your {bookButton}
                   <CalendarDays className="h-4 w-4" />
                 </a>
               </div>
 
               <div className="relative min-h-[240px] lg:min-h-[280px]">
                 <Image
-                  src="/images/amenities/relax.jpeg"
+                  src={bookImg}
                   alt="Relaxing villa stay"
                   fill
                   className="object-cover"

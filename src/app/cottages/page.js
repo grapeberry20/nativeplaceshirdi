@@ -98,6 +98,8 @@ export default async function CottagesPage() {
       stayLabel="All Cottages"
       stayTitle="Cottages"
       bannerTitle="Cottages"
+      bookButton="cottage"
+      bookImg="/images/cottages/cottageinner.jpeg"
       bannerDescription="Cozy stays surrounded by greenery, calm spaces, and a slower pace of living."
       bannerImage={stayContent.bannerImage}
       heroImage={stayContent.heroImages?.[0] || stayContent.bannerImage}

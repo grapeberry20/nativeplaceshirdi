@@ -93,6 +93,8 @@ export default async function VillasPage() {
       stayLabel="All Villas"
       stayTitle="2 BHK Villas"
       bannerTitle="2 BHK Villas"
+      bookButton="villa"
+      bookImg ="/images/banners/bestvilla.jpg"
       bannerDescription="Spacious villas designed for relaxed family stays, private gatherings, and peaceful weekends."
       bannerImage={stayContent.bannerImage}
       heroImage={stayContent.heroImages?.[0] || stayContent.bannerImage}

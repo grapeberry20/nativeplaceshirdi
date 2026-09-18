@@ -13,7 +13,7 @@ const highlights = [
   {
     title: "Comfortable villas and cottages",
     description: "Thoughtfully designed spaces with comfort, style and privacy.",
-    image: "/images/villas/villa1.jpeg",
+    image: "/images/banners/villa2.jpg",
   },
   {
     title: "Swimming pool",
@@ -43,7 +43,7 @@ const highlights = [
   {
     title: "Suitable for corporate outings",
     description: "Ideal for team retreats, meetings and corporate getaways.",
-    image: "/images/dininghall/dininghall.jpeg",
+    image: "/images/amenities/corporate.jpeg",
   },
 ];
 
